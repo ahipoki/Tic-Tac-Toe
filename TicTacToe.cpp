@@ -169,10 +169,10 @@ int main()
       if (strlen(input) != 2) {
 	cout << "Enter a letter followed by a number" << endl;
       }
-      else if (input[0] != 'a' && input[0] != 'b' && input[0] != 'c') {
+      else if (board[0] != 'a' && board[0] != 'b' && board[0] != 'c') {
 	cout << "Row must be an a, b, or c" << endl;
       }
-      else if (input[1] != '1' && input[1] != '2' && input[1] != '3') {
+      else if (board[1] != '1' && board[1] != '2' && board[1] != '3') {
 	cout << "Column must be a 1, 2, or 3" << endl;
       }
     }
