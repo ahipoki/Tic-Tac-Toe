@@ -3,14 +3,6 @@
 
 using namespace std;
 
-//bool checkWin(char player, char board[3][3]) {//Method to check for wins
-//for (int i = 0; i < 3; i++) {
-//if (board[0][0] == player && board[0][1] == player && board[0][2] == player) {
-//return true;
-//}
-//}
-//}
-
 void resetBoard() {
   int board[3][3];
   int BLANK = 0;
@@ -157,10 +149,6 @@ int main()
   int O_TURN = 1;
   int turn = X_TURN;
   char input = 0;
-  //bool xMove = true;
-  //X's move
-  //bool oMove = false;
-  //O's move
   boolean stillPlaying = true;
   while (stillPlaying == true) {
     while (checkWin(X_MOVE) == false && checkWin(O_MOVE) == false && checkTie() == false) {
@@ -175,15 +163,42 @@ int main()
       else if (board[1] != '1' && board[1] != '2' && board[1] != '3') {
 	cout << "Column must be a 1, 2, or 3" << endl;
       }
+      else {
+	int row = board[0] - 'a';
+	int column = board[1] - '1';
+	if (board[row][column] == BLANK) {
+	  if (turn == X_TURN) {
+	     board[row][column] = X_MOVE;
+	     turn = O_TURN;
+	  }
+	  else {
+	    board[row][column] = O_MOVE;
+            turn = X_TURN;
+	  }
+	}
+	else {
+	  cout << "There is already a piece there!" << endl;
+	}
+      }
     }
+    /*
+    if (checkWin(X_MOVE) == true) {
+    	printBoard();
+	cout << "X Wins!" << endl;
+	X_WIN += 1;
+	cout << "Number of times X won: " << X_WIN << endl;
+	cout << "Number of times O won: " << O_WIN << endl;
+    }
+    else if (checkWin(O_MOVE) == true) {
+    	cout << "O Wins!" << endl;
+	O_WIN += 1;
+	cout << "Number of times X won: " << X_WIN << endl;
+	cout << "Number of times O won: " << O_WIN << endl;
+    }
+    */
   }
-  //cout << "Enter a move" << endl;
-  //Ask user for their move
-  //User enters a move
-  //Check to see if move is legal
-  //If legal, enter the move
-  //Start with X
-  //After each move, check for wins and ties
-  //If there's a win, reset the board and show # of wins
-  //Redraw the board
+}
+
+void printBoard() {
+   cout << "\t1\t2\t3");
 }
