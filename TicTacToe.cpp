@@ -201,4 +201,65 @@ int main()
 
 void printBoard() {
    cout << "\t1\t2\t3");
+   for (int row = 0; row < board.length; row++) {
+      char output = 'a' + row + "\t";
+      for (int column = 0; column < board[0].length; column++) {
+	 if (board[row][column] == BLANK) {
+	    output += "\t"; 
+	 }
+	 else if (board[row][column] == X_MOVE) {
+	    output += "X\t"; 
+	 }
+	 else if (board[row][column] == O_MOVE) {
+	    output += "O\t";
+	 }
+      }
+      cout << output << endl;
+   }
+}
+
+bool checkWin(int player) {
+   char input = 0;
+   if (board[0][0] == X_MOVE && board[0][1] == X_MOVE && board[0][2] == X_MOVE) {
+	printBoard();
+	cout << "X Wins!" << endl;
+	X_WIN += 1;
+	cout << "Number of times X won: " << X_WIN << endl;
+	cout << "Number of times O won: " << O_WIN << endl;
+	cout << "Play Again?" << endl;
+	cin >> input;
+	if (input == "yes") {
+	   return false;
+	}
+	else if (input == "no") {
+	   return true;
+	}
+   }
+   else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE) {
+	printBoard();
+	   cout << "O Wins!" << endl;
+	   O_WIN++;
+	   cout << "Number of times X won: " << X_WIN << endl;
+	   cout << "Number of times O won: " << O_WIN << endl;
+	   cout << "Play Again?" << endl;
+	   cin >> input;
+	   if (input == "yes") {
+		return false;
+	   }
+	   else if (input == "no") {
+		return true;   
+	   }
+   }
+   return false;
+}
+
+bool checkTie() {
+   for (int row = 0; row < board.length; row++) {
+	for (int column = 0; column < board[0].length; column++) {
+		if (board[row][column] == BLANK) {
+			return false;
+		}
+	}
+   }
+   return true;
 }
