@@ -8,8 +8,6 @@ void printBoard() {
   int BLANK = 0;
   int X_MOVE = 1;
   int O_MOVE = 2;
-  //(int)playerMove[0] - 97; row
-  //(int)playerMove[0] - 49; column
   cout << "\t1\t2\t3";
   //for (int row = 0; row < 3; row++) {
     //char output = 'a' + row + "\t";
