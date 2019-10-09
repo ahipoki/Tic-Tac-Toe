@@ -211,7 +211,8 @@ int main()
       }
       else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
       {
-	resetBoard();
+	board[0][0] = BLANK;
+	cout << "If 
 	checkWinO = true;     
       }
       else if (board[1][0] == X_MOVE && board[1][1] == X_MOVE && board[1][2] == X_MOVE)
