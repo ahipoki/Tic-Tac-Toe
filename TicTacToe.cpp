@@ -257,6 +257,9 @@ void resetBoard() {//Resetting the board
 
 int main()
 {
+  bool checkWinX = false;
+  bool checkWinO = false;
+  bool checkTie = false;
   int board[3][3];
 	//Board
   int xWins = 0;
@@ -453,6 +456,21 @@ int main()
 	    }
 	  }
 	}
+      }
+      if (board[0][0] == X_MOVE && board[0][1] == X_MOVE && board[0][2] == X_MOVE)
+      {
+	 checkWinX = true;     
+      }
+      else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
+      {
+	 checkWinO = true;     
+      }
+      if (board[0][0] == BLANK && board[0][1] == BLANK && board[0][2] == BLANK && board[1][0] == BLANK && board[1][1] == BLANK && board[1][2] == BLANK && board[2][0] == BLANK && board[2][1] == BLANK && board[2][2] == BLANK)
+      {
+	 checkTie = true;     
+      }
+      else {
+	 checkTie = false;     
       }
     }
   }
