@@ -6,8 +6,11 @@ using namespace std;
 int main()
 {
   bool checkWinX = false;
+  //Checking for x wins
   bool checkWinO = false;
+  //Checking for o wins
   bool checkTie = false;
+  //Checking for ties
   int board[3][3] = {0};
   //Board
   int xWins = 0;
@@ -23,15 +26,19 @@ int main()
   int BLANK_MOVE = 3;
   //Blank spots
   int X_TURN = 0;
+  //X's turn
   int O_TURN = 1;
+  //O's turn
   int turn = X_TURN;
   //X's turn first
   char move[2];
+  //2 char long input for the user's move
   char playAgain = 0;
-  //Get user input for a move
+  //Get user input for if they want to play again
   int movelen = strlen(move);
   //Get the length of the user's input
   bool stillPlaying = true;
+  //Check if they're still playing
   while (stillPlaying == true) {//While you're still playing
     while (checkWinX == false && checkWinO == false && checkTie == false) {//While there isn't a win and there isn't a tie
       cout << "\t1\t2\t3" << endl;
@@ -42,21 +49,26 @@ int main()
       cout << "c" << "\t" << board[2][0] << "\t" << board[2][1] << "\t" << board[2][2] << endl;
       //Print out the board
       cout << "Enter your move" << endl;
+      //Ask for a move
       cin >> move;
-	    //Take in the user's input for a move
-      if (movelen != 2) {//If the input length is not 2
+      //Take in the user's input for a move
+      if (movelen != 2) 
+      {//If the input length is not 2
 	cout << "Enter a letter followed by a number" << endl;
-	      //Tell the user to input a letter followed by a number
+	//Tell the user to input a letter followed by a number
       }
-      if (move[0] != 'a' && move[0] != 'b' && move[0] != 'c') {//If the first spot of the input is not an a, b, or c
+      if (move[0] != 'a' && move[0] != 'b' && move[0] != 'c') 
+      {//If the first spot of the input is not an a, b, or c
 	cout << "Row must be an a, b, or c" << endl;
-	      //Tell the user that the row must be an a, b, or c
+	//Tell the user that the row must be an a, b, or c
       }
-      else if (move[1] != '1' && move[1] != '2' && move[1] != '3') {//If the second spot of the input is not a 1, 2, or 3
+      else if (move[1] != '1' && move[1] != '2' && move[1] != '3') 
+      {//If the second spot of the input is not a 1, 2, or 3
 	cout << "Column must be a 1, 2, or 3" << endl;
-	      //Tell the user that the column must be a 1, 2, or 3
+	//Tell the user that the column must be a 1, 2, or 3
       }
-      else {//If the input fits all the requirements
+      else 
+      {//If the input fits all the requirements
 	if (move[0] == 'a' && move[1] == '1' && board[0][0] != X_MOVE && board[0][0] != O_MOVE)
 	{//If the first spot in the input is an a
 	  if (turn == X_TURN)
@@ -82,7 +94,7 @@ int main()
 	  else if (turn == O_TURN)
 	  {
 	    board[0][1] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -91,13 +103,13 @@ int main()
 	  if (turn == X_TURN)
 	  {
 	    board[0][2] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[0][2] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -106,13 +118,13 @@ int main()
 	  if (turn == X_TURN)
 	    {//15.1851852
 	    board[1][0] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	    {//735
 	    board[1][0] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -121,27 +133,28 @@ int main()
 	  if (turn == X_TURN)
 	  {
 	    board[1][1] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[1][1] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
 	else if (move[0] == 'b' && move[1] == '3' && board[1][2] != X_MOVE && board[1][2] != O_MOVE)
 	{
-	  if (turn == X_TURN) {
+	  if (turn == X_TURN) 
+	  {
 	    board[1][2] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[1][2] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -150,13 +163,13 @@ int main()
 	  if (turn == X_TURN)
 	  {
 	    board[2][0] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[2][0] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -165,13 +178,13 @@ int main()
 	  if (turn == X_TURN)
 	  {
 	    board[2][1] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[2][1] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
@@ -180,19 +193,21 @@ int main()
 	  if (turn == X_TURN)
 	  {
 	    board[2][2] = X_MOVE;
-	    cout << "X";
+	    //cout << "X";
 	    turn = O_TURN;
 	  }
 	  else if (turn == O_TURN)
 	  {
 	    board[2][2] = O_MOVE;
-	    cout << "O";
+	    //cout << "O";
 	    turn = X_TURN;
 	  }
 	}
       }
       if (board[0][0] == X_MOVE && board[0][1] == X_MOVE && board[0][2] == X_MOVE)
-      {
+      { // x x x
+	// - - -
+	// - - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -215,7 +230,9 @@ int main()
 	}
       }
       else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
-      {
+      { // o o o
+	// - - -
+	// - - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -238,7 +255,9 @@ int main()
 	}
       }
       else if (board[1][0] == X_MOVE && board[1][1] == X_MOVE && board[1][2] == X_MOVE)
-      {
+      { // - - -
+	// x x x
+	// - - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -261,7 +280,9 @@ int main()
 	}
       }
       else if (board[1][0] == O_MOVE && board[1][1] == O_MOVE && board[1][2] == X_MOVE)
-      {
+      { // - - -
+	// o o o
+	// - - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -284,7 +305,9 @@ int main()
 	}
       }
       else if (board[2][0] == X_MOVE && board[2][1] == X_MOVE && board[2][2] == X_MOVE)
-      {
+      { // - - -
+	// - - -
+	// x x x
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -307,7 +330,9 @@ int main()
 	}     
       }
       else if (board[2][0] == O_MOVE && board[2][1] == O_MOVE && board[2][2] == O_MOVE)
-      {
+      { // - - -
+	// - - -
+	// o o o
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -330,7 +355,9 @@ int main()
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][0] == X_MOVE && board[2][0] == X_MOVE)
-      {
+      { // x - -
+	// x - -
+	// x - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -353,7 +380,9 @@ int main()
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][0] == O_MOVE && board[2][0] == O_MOVE)
-      {
+      { // o - -
+	// o - -
+	// o - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -376,7 +405,9 @@ int main()
 	}      
       }
       else if (board[0][1] == X_MOVE && board[1][1] == X_MOVE && board[2][1] == X_MOVE)
-      {
+      { // - x -
+	// - x -
+	// - x -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -399,7 +430,9 @@ int main()
 	}      
       }
       else if (board[0][1] == O_MOVE && board[1][1] == O_MOVE && board[2][1] == O_MOVE)
-      {
+      { // - o -
+	// - o -
+	// - o -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -422,7 +455,9 @@ int main()
 	}      
       }
       else if (board[0][2] == X_MOVE && board[1][2] == X_MOVE && board[2][2] == X_MOVE)
-      {
+      { // - - x
+	// - - x
+	// - - x
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -445,7 +480,9 @@ int main()
 	}      
       }
       else if (board[0][2] == O_MOVE && board[1][2] == O_MOVE && board[2][2] == O_MOVE)
-      {
+      { // - - o
+	// - - o
+	// - - o
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -468,7 +505,9 @@ int main()
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][1] == X_MOVE && board[2][2] == X_MOVE)
-      {
+      { // x - -
+	// - x -
+	// - - x
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -491,7 +530,9 @@ int main()
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][1] == O_MOVE && board[2][2] == O_MOVE)
-      {
+      { // o - -
+	// - o -
+	// - - o
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -514,7 +555,9 @@ int main()
 	}      
       }
       else if (board[0][2] == X_MOVE && board[1][1] == X_MOVE && board[2][0] == X_MOVE)
-      {
+      { // - - x
+	// - x -
+	// x - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -537,7 +580,9 @@ int main()
 	}      
       }
       else if (board[0][2] == O_MOVE && board[1][1] == O_MOVE && board[2][0] == O_MOVE)
-      {
+      { // - - o
+	// - o -
+	// o - -
 	board[0][0] = BLANK;
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
@@ -560,12 +605,29 @@ int main()
 	}      
       }
       if (board[0][0] == BLANK && board[0][1] == BLANK && board[0][2] == BLANK && board[1][0] == BLANK && board[1][1] == BLANK && board[1][2] == BLANK && board[2][0] == BLANK && board[2][1] == BLANK && board[2][2] == BLANK)
-      {
-	resetBoard();
-	checkTie = true;     
-      }
-      else {
-	 checkTie = false;     
+      { // - - -
+	// - - -
+	// - - -
+	board[0][0] = BLANK;
+	board[0][1] = BLANK;
+	board[0][2] = BLANK;
+	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
+	turn = X_TURN;
+	cout << "Do you want to play again? (y/n)" << endl;
+	cin >> playAgain;
+	if (playAgain = 'y')
+	{
+	  checkTie = false;
+	}
+	else
+	{
+	  checkTie = true;
+	}
       }
     }
   }
