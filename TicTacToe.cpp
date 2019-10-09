@@ -3,27 +3,47 @@
 
 using namespace std;
 
-void printBoard() {
+void printBoard() {//Printing the board
   int board[3][3];
   int BLANK = 0;
   int X_MOVE = 1;
   int O_MOVE = 2;
+  //Set up the 3x3 board
   cout << "\t1\t2\t3";
-  //for (int row = 0; row < 3; row++) {
-    //char output = 'a' + row + "\t";
-    //for (int column = 0; column < 3; column++) {
-    //if (board[row][column] == BLANK) {
-    //output += "\t"; 
-    //}
-    //else if (board[row][column] == X_MOVE) {
-    //output += "X\t"; 
-    //}
-    //else if (board[row][column] == O_MOVE) {
-    //output += "O\t";
-    //}
-    //}
-    //cout << output << endl;
-  //}
+  //Print out the board
+  cout << "a" << endl;
+  cout << " " << endl;
+  cout << "b" << endl;
+  cout << " " << endl;
+  cout << "c" << endl;
+  for (int i = 0; i < 3; i++)
+  {//For the length of the board
+    for (int j = 0; j < 3; j++)
+    {//For the width of the board
+      if (board[i][j] == X_MOVE)
+      {//If the spot is an X
+        cout << "X" << endl;
+	//Print out an X
+      }
+      else if (board[i][j] == O_MOVE)
+      {//If the spot is an O
+	cout << "O" << endl;
+	//Print out an O
+      }
+      else if (board[i][j] == BLANK)
+      {//If the spot is blank
+	cout << " " << endl;
+	//Print out a blank spot
+      }
+    }
+  }
+  //std::cout   << std::endl
+                //<< pos[0] << " │ " << pos[1] << " │ " << pos[2]
+                //<< "\n──┼───┼──\n"
+                //<< pos[3] << " │ " << pos[4] << " │ " << pos[5]
+                //<< "\n──┼───┼──\n"
+                //<< pos[6] << " │ " << pos[7] << " │ " << pos[8]
+                //<< std::endl;
 }
 
 bool checkWin(int player) {
@@ -70,7 +90,7 @@ bool checkWin(int player) {
 bool checkTie() {
   int board[3][3];
   int BLANK = 0;
-  if (board[0][0] == BLANK && board[0][1] == BLANK && board[0][2] == BLANK && board[1][0] == BLANK && board[1][1] == BLANK && board[1][2] == BLANK && board[2][0] == BLANK && board[2][1] == BLANK && board[2][2] == BLANK) {
+  if (board[0][0] == BLANK || board[0][1] == BLANK || board[0][2] == BLANK || board[1][0] == BLANK || board[1][1] == BLANK || board[1][2] == BLANK || board[2][0] == BLANK || board[2][1] == BLANK || board[2][2] == BLANK) {
     return false;
   }
   return true;
@@ -242,7 +262,7 @@ int main()
 	{
 	  if (input[1] = '1')
 	  {
-	    if (board[0][0] == BLANK)
+	    if (board[0][0] != X_MOVE && board[0][0] != O_MOVE)
 	    {
 	      if (turn == X_TURN)
 	      {
@@ -262,7 +282,7 @@ int main()
 	  }
 	  else if (input[1] = '2')
 	  {
-	    if (board[0][1] == BLANK)
+	    if (board[0][1] != X_MOVE && board[0][1] != O_MOVE)
 	    {
 	      if (turn == X_TURN)
 	      {
@@ -281,7 +301,7 @@ int main()
 	    }
 	  }
 	  else if (input[1] = '3') {
-	    if (board[0][2] == BLANK) {
+	    if (board[0][2] != X_MOVE && board[0][2] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[0][2] = X_MOVE;
 		turn = O_TURN;
@@ -298,7 +318,7 @@ int main()
 	}
 	else if (input[0] = 'b') {
 	  if (input[1] = '1') {
-	    if (board[1][0] == BLANK) {
+	    if (board[1][0] != X_MOVE && board[1][0] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[1][0] = X_MOVE;
 		turn = O_TURN;
@@ -313,7 +333,7 @@ int main()
 	    }
 	  }
 	  else if (input[1] = '2') {
-	    if (board[1][1] == BLANK) {
+	    if (board[1][1] != X_MOVE && board[1][1] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[1][1] = X_MOVE;
 		turn = O_TURN;
@@ -328,7 +348,7 @@ int main()
 	    }
 	  }
 	  else if (input[1] = '3') {
-	    if (board[1][2] == BLANK) {
+	    if (board[1][2] != X_MOVE && board[1][2] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[1][2] = X_MOVE;
 		turn = O_TURN;
@@ -345,7 +365,7 @@ int main()
 	}
 	else if (input[0] = 'c') {
 	  if (input[1] = '1') {
-	    if (board[2][0] == BLANK) {
+	    if (board[2][0] != X_MOVE && board[2][0] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[2][0] = X_MOVE;
 		turn = O_TURN;
@@ -360,7 +380,7 @@ int main()
 	    }
 	  }
 	  else if (input[1] = '2') {
-	    if (board[2][1] == BLANK) {
+	    if (board[2][1] != X_MOVE && board[2][1] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[2][1] = X_MOVE;
 		turn = O_TURN;
@@ -375,7 +395,7 @@ int main()
 	    }
 	  }
 	  else if (input[1] = '3') {
-	    if (board[2][2] == BLANK) {
+	    if (board[2][2] != X_MOVE && board[2][2] != O_MOVE) {
 	      if (turn == X_TURN) {
 		board[2][2] = X_MOVE;
 		turn = O_TURN;
@@ -393,4 +413,5 @@ int main()
       }
     }
   }
+  printBoard();
 }
