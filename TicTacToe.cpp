@@ -197,6 +197,11 @@ int main()
 	board[0][1] = BLANK;
 	board[0][2] = BLANK;
 	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
 	turn = X_TURN;
 	cout << "Do you want to play again? (y/n)" << endl;
 	cin >> playAgain;
@@ -212,6 +217,15 @@ int main()
       else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
       {
 	board[0][0] = BLANK;
+	board[0][1] = BLANK;
+	board[0][2] = BLANK;
+	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
+	turn = X_TURN;
 	cout << "Do you want to play again? (y/n)" << endl;
 	cin >> playAgain;
 	if (playAgain = 'y')
@@ -225,13 +239,72 @@ int main()
       }
       else if (board[1][0] == X_MOVE && board[1][1] == X_MOVE && board[1][2] == X_MOVE)
       {
-	resetBoard();
-	checkWinX = true;
+	board[0][0] = BLANK;
+	board[0][1] = BLANK;
+	board[0][2] = BLANK;
+	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
+	turn = X_TURN;
+	cout << "Do you want to play again? (y/n)" << endl;
+	cin >> playAgain;
+	if (playAgain = 'y')
+	{
+	  checkWinX = false;
+	}
+	else
+	{
+	  checkWinX = true;
+	}
       }
       else if (board[1][0] == O_MOVE && board[1][1] == O_MOVE && board[1][2] == X_MOVE)
       {
-	resetBoard();
-	checkWinO = true;
+	board[0][0] = BLANK;
+	board[0][1] = BLANK;
+	board[0][2] = BLANK;
+	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
+	turn = X_TURN;
+	cout << "Do you want to play again? (y/n)" << endl;
+	cin >> playAgain;
+	if (playAgain = 'y')
+	{
+	  checkWinO = false;
+	}
+	else
+	{
+	  checkWinO = true;
+	}
+      }
+      else if (board[2][0] == X_MOVE && board[2][1] == X_MOVE && board[2][2] == X_MOVE)
+      {
+	board[0][0] = BLANK;
+	board[0][1] = BLANK;
+	board[0][2] = BLANK;
+	board[1][0] = BLANK;
+	board[1][1] = BLANK;
+	board[1][2] = BLANK;
+	board[2][0] = BLANK;
+	board[2][1] = BLANK;
+	board[2][2] = BLANK;
+	turn = X_TURN;
+	cout << "Do you want to play again? (y/n)" << endl;
+	cin >> playAgain;
+	if (playAgain = 'y')
+	{
+	  checkWinX = false;
+	}
+	else
+	{
+	  checkWinX = true;
+	}     
       }
       if (board[0][0] == BLANK && board[0][1] == BLANK && board[0][2] == BLANK && board[1][0] == BLANK && board[1][1] == BLANK && board[1][2] == BLANK && board[2][0] == BLANK && board[2][1] == BLANK && board[2][2] == BLANK)
       {
