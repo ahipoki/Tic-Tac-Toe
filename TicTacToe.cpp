@@ -213,6 +213,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}
       }
       else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
@@ -241,6 +242,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}
       }
       else if (board[1][0] == X_MOVE && board[1][1] == X_MOVE && board[1][2] == X_MOVE)
@@ -269,6 +271,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}
       }
       else if (board[1][0] == O_MOVE && board[1][1] == O_MOVE && board[1][2] == X_MOVE)
@@ -297,6 +300,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}
       }
       else if (board[2][0] == X_MOVE && board[2][1] == X_MOVE && board[2][2] == X_MOVE)
@@ -325,6 +329,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}     
       }
       else if (board[2][0] == O_MOVE && board[2][1] == O_MOVE && board[2][2] == O_MOVE)
@@ -353,6 +358,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][0] == X_MOVE && board[2][0] == X_MOVE)
@@ -381,6 +387,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][0] == O_MOVE && board[2][0] == O_MOVE)
@@ -409,6 +416,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][1] == X_MOVE && board[1][1] == X_MOVE && board[2][1] == X_MOVE)
@@ -437,6 +445,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][1] == O_MOVE && board[1][1] == O_MOVE && board[2][1] == O_MOVE)
@@ -465,6 +474,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][2] == X_MOVE && board[1][2] == X_MOVE && board[2][2] == X_MOVE)
@@ -493,6 +503,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][2] == O_MOVE && board[1][2] == O_MOVE && board[2][2] == O_MOVE)
@@ -521,6 +532,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][1] == X_MOVE && board[2][2] == X_MOVE)
@@ -549,6 +561,7 @@ int main()
 	else if (playAgain = 'n')
 	{
 	  checkWin = true;
+	  stillPlaying = false;
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][1] == O_MOVE && board[2][2] == O_MOVE)
