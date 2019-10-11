@@ -2,14 +2,18 @@
 #include <cstring>
 
 using namespace std;
-
+/*
+  Finn McKinley
+  10/10/19
+  A Tic Tac Toe game
+ */
 int main()
 {
   bool checkWin = false;
   //Checking for wins
   bool checkTie = false;
   //Checking for ties
-  int board[3][3] = {0};
+  char board[3][3] = {0};
   //Board
   int xWins = 0;
   //# of X wins
@@ -17,28 +21,24 @@ int main()
   //# of O wins
   int BLANK = 0;
   //Blank spots
-  int X_MOVE = 1;
+  char X_MOVE = 'X';
   //X move
-  int O_MOVE = 2;
+  char O_MOVE = 'O';
   //O move
   int BLANK_MOVE = 3;
   //Blank spots
-  int X_TURN = 0;
-  //X's turn
-  int O_TURN = 1;
-  //O's turn
-  int turn = X_TURN;
-  //X's turn first
+  int turn = 1;
+  //X's turn first 0 for x and 1 for o
   char move[2];
   //2 char long input for the user's move
   char playAgain = 0;
   //Get user input for if they want to play again
-  int movelen = strlen(move);
-  //Get the length of the user's input
   bool stillPlaying = true;
   //Check if they're still playing
-  while (stillPlaying == true) {//While you're still playing
-    while (checkWin == false && checkTie == false) {//While there isn't a win and there isn't a tie
+  while (stillPlaying == true)
+  {//While you're still playing
+    while (checkWin == false && checkTie == false)
+    {//While there isn't a win and there isn't a tie
       cout << "\t1\t2\t3" << endl;
       cout << "a" << "\t" << board[0][0] << "\t" << board[0][1] << "\t" << board[0][2] << endl;
       cout << " " << endl;
@@ -50,11 +50,6 @@ int main()
       //Ask for a move
       cin >> move;
       //Take in the user's input for a move
-      //if (movelen > 3) 
-      //{//If the input length is not 2
-      //cout << "Enter a letter followed by a number" << endl;
-	//Tell the user to input a letter followed by a number
-      //}
       if (move[0] != 'a' && move[0] != 'b' && move[0] != 'c') 
       {//If the first spot of the input is not an a, b, or c
 	cout << "Row must be an a, b, or c" << endl;
@@ -67,127 +62,125 @@ int main()
       }
       else 
       {//If the input fits all the requirements
-	if (move[0] == 'a' && move[1] == '1' && board[0][0] != X_MOVE && board[0][0] != O_MOVE)
-	{//If the first spot in the input is an a
-	  if ((turn = X_TURN))
+	if (move[0] == 'a' && move[1] == '1')
+	{//If the input is a1
+	  if (turn == 0)
 	  {//If it's X's turn
-	    board[0][0] = X_MOVE;
-	    //Set the spot to an X
-	    turn = O_TURN;
-	    //It's now O's turn
+	    board[0][0] = 'X';
+	    turn = 1;
 	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[0][0] = O_MOVE;
-	    turn = X_TURN;
+	  else
+	  {//If it's O's turn
+            board[0][0] = 'O';
+            turn = 0;
+          }
+	}
+	else if (move[0] == 'a' && move[1] == '2')
+	  {//If the input is a2
+	    if (turn == 0)
+	    {//If it's X's turn
+	      board[0][1] = 'X';
+	      turn = 1;
+	    }
+	    else
+	    {//If it's O's turn
+	      board[0][1] = 'O';
+	      turn = 0;
+	    }
+        }
+        else if (move[0] == 'a' && move[1] == '3')
+        {//If the input is a3
+	  if (turn == 0)
+          {//If it's X's turn
+	    board[0][2] = 'X';
+	    turn = 1;
+	  }
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[0][2] = 'O';
+	    turn = 0;
 	  }
 	}
-	else if (move[0] == 'a' && move[1] == '2' && board[0][1] != X_MOVE && board[0][1] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[0][1] = X_MOVE;
-	    turn = O_TURN;
+	else if (move[0] == 'b' && move[1] == '1')
+	{//If the input is b1
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[1][0] = 'X';
+	    turn = 1;
 	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[0][1] = O_MOVE;
-	    turn = X_TURN;
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[1][0] = 'O';
+	    turn = 0;
+          }
+	}
+	else if (move[0] == 'b' && move[1] == '2')
+	{//If the input is b2
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[1][1] = 'X';
+	    turn = 1;
+	  }
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[1][1] = 'O';
+	    turn = 1;
 	  }
 	}
-        else if (move[0] == 'a' && move[1] == '3' && board[0][2] != X_MOVE && board[0][2] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[0][2] = X_MOVE;
-	    turn = O_TURN;
+	else if (move[0] == 'b' && move[1] == '3')
+	{//If the input is b3
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[1][2] = 'X';
+	    turn = 1;
 	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[0][2] = O_MOVE;
-	    turn = X_TURN;
-	  }
-	}
-	else if (move[0] == 'b' && move[1] == '1' && board[1][0] != X_MOVE && board[1][0] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[1][0] = X_MOVE;
-	    turn = O_TURN;
-	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[1][0] = O_MOVE;
-	    turn = X_TURN;
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[1][2] = 'O';
+	    turn = 0;
 	  }
 	}
-	else if (move[0] == 'b' && move[1] == '2' && board[1][1] != X_MOVE && board[1][1] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[1][1] = X_MOVE;
-	    turn = O_TURN;
+	else if (move[0] == 'c' && move[1] == '1')
+	{//If the input is c1
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[2][0] = 'X';
+	    turn = 1;
 	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[1][1] = O_MOVE;
-	    turn = X_TURN;
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[2][0] = 'O';
+	    turn = 0;
 	  }
-	}
-	else if (move[0] == 'b' && move[1] == '3' && board[1][2] != X_MOVE && board[1][2] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[1][2] = X_MOVE;
-	    turn = O_TURN;
+        }
+        else if (move[0] == 'c' && move[1] == '2')
+	{//If the input is c2
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[2][1] = 'X';
+	    turn = 1;
 	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[1][2] = O_MOVE;
-	    turn = X_TURN;
+	  else if (turn == 1)
+	  {//If it's O's turn
+	    board[2][1] = 'O';
+	    turn = 0;
 	  }
-	}
-	else if (move[0] == 'c' && move[1] == '1' && board[2][0] != X_MOVE && board[2][0] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[2][0] = X_MOVE;
-	    turn = O_TURN;
+        }
+        else if (move[0] == 'c' && move[1] == '3')
+        {//If the input is c3
+	  if (turn == 0)
+	  {//If it's X's turn
+	    board[2][2] = 'X';
+	    turn = 1;
 	  }
-	  else if (turn == O_TURN)
-	  {
-	    board[2][0] = O_MOVE;
-	    turn = X_TURN;
-	  }
-	}
-        else if (move[0] == 'c' && move[1] == '2' && board[2][1] != X_MOVE && board[2][1] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[2][1] = X_MOVE;
-	    turn = O_TURN;
-	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[2][1] = O_MOVE;
-	    turn = X_TURN;
-	  }
-	}
-	else if (move[0] == 'c' && move[1] == '3' && board[2][2] != X_MOVE && board[2][2] != O_MOVE)
-	{
-	  if ((turn = X_TURN))
-	  {
-	    board[2][2] = X_MOVE;
-	    turn = O_TURN;
-	  }
-	  else if ((turn = O_TURN))
-	  {
-	    board[2][2] = O_MOVE;
-	    turn = X_TURN;
-	  }
-	}
+	  else if (turn == 1)
+          {//If it's O's turn
+            board[2][2] = 'O';
+            turn = 0;
+          }
+        }
       }
-      if (board[0][0] == X_MOVE && board[0][1] == X_MOVE && board[0][2] == X_MOVE)
+      if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X')
       { // x x x
 	// - - -
 	// - - -
@@ -200,20 +193,30 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//Set it to X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
+	//Tell the user that X won
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//Show how many times each player won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask if they want to play again
 	cin >> playAgain;
-	if ((playAgain == 'y'))
-	{
+	//Get their answer
+	if (playAgain == 'y')
+	{//If they say yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if ((playAgain == 'n'))
-	{
+	else if (playAgain == 'n')
+	{//If they say no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}
       }
       else if (board[0][0] == O_MOVE && board[0][1] == O_MOVE && board[0][2] == O_MOVE)
@@ -229,20 +232,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}
       }
       else if (board[1][0] == X_MOVE && board[1][1] == X_MOVE && board[1][2] == X_MOVE)
@@ -258,20 +269,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset the board
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}
       }
       else if (board[1][0] == O_MOVE && board[1][1] == O_MOVE && board[1][2] == X_MOVE)
@@ -287,20 +306,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}
       }
       else if (board[2][0] == X_MOVE && board[2][1] == X_MOVE && board[2][2] == X_MOVE)
@@ -316,20 +343,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}     
       }
       else if (board[2][0] == O_MOVE && board[2][1] == O_MOVE && board[2][2] == O_MOVE)
@@ -345,20 +380,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][0] == X_MOVE && board[2][0] == X_MOVE)
@@ -374,20 +417,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][0] == O_MOVE && board[2][0] == O_MOVE)
@@ -403,20 +454,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][1] == X_MOVE && board[1][1] == X_MOVE && board[2][1] == X_MOVE)
@@ -432,20 +491,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset the board
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][1] == O_MOVE && board[1][1] == O_MOVE && board[2][1] == O_MOVE)
@@ -461,20 +528,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset the game
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][2] == X_MOVE && board[1][2] == X_MOVE && board[2][2] == X_MOVE)
@@ -490,20 +565,26 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	turn = 0;
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset the game
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][2] == O_MOVE && board[1][2] == O_MOVE && board[2][2] == O_MOVE)
@@ -519,20 +600,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset the game
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][0] == X_MOVE && board[1][1] == X_MOVE && board[2][2] == X_MOVE)
@@ -548,20 +637,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player's won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][0] == O_MOVE && board[1][1] == O_MOVE && board[2][2] == O_MOVE)
@@ -577,20 +674,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player has won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][2] == X_MOVE && board[1][1] == X_MOVE && board[2][0] == X_MOVE)
@@ -606,20 +711,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	xWins++;
+	//Add 1 to X's wins
+	cout << "X Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask if they want to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       else if (board[0][2] == O_MOVE && board[1][1] == O_MOVE && board[2][0] == O_MOVE)
@@ -635,20 +748,28 @@ int main()
 	board[2][0] = BLANK;
 	board[2][1] = BLANK;
 	board[2][2] = BLANK;
-	turn = X_TURN;
+	//Reset the board
+	turn = 0;
+	//X's turn
 	oWins++;
+	//Add 1 to O's wins
+	cout << "O Wins!" << endl;
 	cout << "X has won: " << xWins << " times" << endl;
 	cout << "O has won: " << oWins << " times" << endl;
+	//How many times each player won
 	cout << "Do you want to play again? (y/n)" << endl;
+	//Ask if they want to play again
 	cin >> playAgain;
-	if (playAgain = 'y')
-	{
+	if (playAgain == 'y')
+        {//If yes
 	  checkWin = false;
+	  //Reset everything
 	}
-	else if (playAgain = 'n')
-	{
+	else if (playAgain == 'n')
+        {//If no
 	  checkWin = true;
 	  stillPlaying = false;
+	  //End the game
 	}      
       }
       if ((board[0][0] == X_MOVE || board[0][0] == O_MOVE) && (board[0][1] == X_MOVE || board[0][1] == O_MOVE) && (board[0][2] == X_MOVE || board[0][2] == O_MOVE) && (board[1][0] == X_MOVE || board[1][0] == O_MOVE) && (board[1][1] == X_MOVE || board[1][1] == O_MOVE) && (board[1][2] == X_MOVE || board[1][2] == O_MOVE) && (board[2][0] == X_MOVE || board[2][0] == O_MOVE) && (board[2][1] == X_MOVE || board[2][1] == O_MOVE) && (board[2][2] == X_MOVE || board[2][2] == O_MOVE))
@@ -663,7 +784,7 @@ int main()
         board[2][1] = BLANK;
         board[2][2] = BLANK;
 	//Reset the board
-        turn = X_TURN;
+        turn = 0;
 	//X's turn
 	cout << "You tied!" << endl;
 	//Tell the user they tied
@@ -674,14 +795,16 @@ int main()
         cout << "Do you want to play again? (y/n)" << endl;
 	//Ask the user if they want to play again
         cin >> playAgain;
-        if (playAgain = 'y')
-        {
+        if (playAgain == 'y')
+        {//If they say yes
 	  checkTie = false;
+	  //Reset everything
         }
-        else if (playAgain = 'n')
-        {
+        else if (playAgain == 'n')
+	{//If they say no
 	  checkTie = true;
 	  stillPlaying = false;
+	  //End the program
         }
       }
     }
