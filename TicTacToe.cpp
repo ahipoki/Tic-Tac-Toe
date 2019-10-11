@@ -69,14 +69,14 @@ int main()
       {//If the input fits all the requirements
 	if (move[0] == 'a' && move[1] == '1' && board[0][0] != X_MOVE && board[0][0] != O_MOVE)
 	{//If the first spot in the input is an a
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {//If it's X's turn
 	    board[0][0] = X_MOVE;
 	    //Set the spot to an X
 	    turn = O_TURN;
 	    //It's now O's turn
 	  }
-	  else
+	  else if ((turn = O_TURN))
 	  {
 	    board[0][0] = O_MOVE;
 	    turn = X_TURN;
@@ -84,12 +84,12 @@ int main()
 	}
 	else if (move[0] == 'a' && move[1] == '2' && board[0][1] != X_MOVE && board[0][1] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[0][1] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[0][1] = O_MOVE;
 	    turn = X_TURN;
@@ -97,12 +97,12 @@ int main()
 	}
         else if (move[0] == 'a' && move[1] == '3' && board[0][2] != X_MOVE && board[0][2] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[0][2] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[0][2] = O_MOVE;
 	    turn = X_TURN;
@@ -110,25 +110,25 @@ int main()
 	}
 	else if (move[0] == 'b' && move[1] == '1' && board[1][0] != X_MOVE && board[1][0] != O_MOVE)
 	{
-	  if (turn == X_TURN)
-	    {
+	  if ((turn = X_TURN))
+	  {
 	    board[1][0] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
-	    {
+	  else if ((turn = O_TURN))
+	  {
 	    board[1][0] = O_MOVE;
 	    turn = X_TURN;
 	  }
 	}
 	else if (move[0] == 'b' && move[1] == '2' && board[1][1] != X_MOVE && board[1][1] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[1][1] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[1][1] = O_MOVE;
 	    turn = X_TURN;
@@ -136,12 +136,12 @@ int main()
 	}
 	else if (move[0] == 'b' && move[1] == '3' && board[1][2] != X_MOVE && board[1][2] != O_MOVE)
 	{
-	  if (turn == X_TURN) 
+	  if ((turn = X_TURN))
 	  {
 	    board[1][2] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[1][2] = O_MOVE;
 	    turn = X_TURN;
@@ -149,7 +149,7 @@ int main()
 	}
 	else if (move[0] == 'c' && move[1] == '1' && board[2][0] != X_MOVE && board[2][0] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[2][0] = X_MOVE;
 	    turn = O_TURN;
@@ -162,12 +162,12 @@ int main()
 	}
         else if (move[0] == 'c' && move[1] == '2' && board[2][1] != X_MOVE && board[2][1] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[2][1] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[2][1] = O_MOVE;
 	    turn = X_TURN;
@@ -175,12 +175,12 @@ int main()
 	}
 	else if (move[0] == 'c' && move[1] == '3' && board[2][2] != X_MOVE && board[2][2] != O_MOVE)
 	{
-	  if (turn == X_TURN)
+	  if ((turn = X_TURN))
 	  {
 	    board[2][2] = X_MOVE;
 	    turn = O_TURN;
 	  }
-	  else if (turn == O_TURN)
+	  else if ((turn = O_TURN))
 	  {
 	    board[2][2] = O_MOVE;
 	    turn = X_TURN;
@@ -206,11 +206,11 @@ int main()
 	cout << "O has won: " << oWins << " times" << endl;
 	cout << "Do you want to play again? (y/n)" << endl;
 	cin >> playAgain;
-	if (playAgain = 'y')
+	if ((playAgain == 'y'))
 	{
 	  checkWin = false;
 	}
-	else if (playAgain = 'n')
+	else if ((playAgain == 'n'))
 	{
 	  checkWin = true;
 	  stillPlaying = false;
